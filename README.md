@@ -1,2 +1,3 @@
 # pomodoro-timer
-# This timer script times work and break sessions for the Pomodoro technique, which involves alternating between 25 minutes of work and 5 minutes of break time.
+This is a simple cmd prompt Pomodoro Timer script written in Python. This tool helps you boost productivity by breaking work into focused intervals (typically 25 minutes) followed by short breaks (typically 5 minutes), like the popular Pomodoro Technique.
+
