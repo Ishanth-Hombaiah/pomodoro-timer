@@ -9,9 +9,11 @@ def timer_start(workTime=25, breakTime=5, top_of_30=False):
     workSessionCount = 0
     
     if top_of_30:
-        curr_time = datetime.now().time()
-        if curr_time[1] != 30 and curr_time[1] != 0:
-            time.sleep(abs(30 - curr_time[1]))
+        curr_time = datetime.now()        
+        minutes = curr_time.minute
+        
+        if minutes != 30 and minutes != 0:
+            time.sleep(abs(30 - minutes))
     
     print("The timer has begun! Use Ctrl-C to stop the timer.")
     winsound.Beep(1000, 1000) 
@@ -32,7 +34,7 @@ def timer_start(workTime=25, breakTime=5, top_of_30=False):
         print("Timer stopped!")
 
 try: 
-    workTime, breakTime, top_of_30 = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]) # If user specifies custom work and break times
+    workTime, breakTime, top_of_30 = int(sys.argv[1]), int(sys.argv[2]), bool(sys.argv[3]) # If user specifies custom work and break times
 except:
     workTime, breakTime, top_of_30 = 25, 5, False
 
