@@ -2,12 +2,15 @@ import time
 import winsound
 import sys
 
-def timer_start(workTime = 25, breakTime=5):
+def timer_start(workTime=25, breakTime=5, top_of_30=False):
     time_intervals = [workTime * 60, breakTime * 60] # Default is 25 minutes of work and 5 minutes of break time
     intervalType = 0 # Whether the current session is for working or taking a break
     workSessionCount = 0
+    
 
     print("The timer has begun! Use Ctrl-C to stop the timer.")
+    winsound.Beep(1000, 1000) 
+    
     try: 
         while True:
             if intervalType == 0: # If current session is work, increment workSessionCount    
@@ -24,8 +27,8 @@ def timer_start(workTime = 25, breakTime=5):
         print("Timer stopped!")
 
 try: 
-    workTime, breakTime = int(sys.argv[1]), int(sys.argv[2]) # If user specifies custom work and break times
+    workTime, breakTime, top_of_30 = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]) # If user specifies custom work and break times
 except:
-    workTime, breakTime = 25, 5
+    workTime, breakTime, top_of_30 = 25, 5, False
 
-timer_start(workTime, breakTime)
+timer_start(workTime, breakTime, top_of_30)
