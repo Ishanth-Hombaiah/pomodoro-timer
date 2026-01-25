@@ -13,7 +13,7 @@ def timer_start(workTime=25, breakTime=5, top_of_30=False):
         minutes = curr_time.minute
         
         if minutes != 30 and minutes != 0:
-            time.sleep(abs(30 - minutes))
+            time.sleep(60 * abs(30 - minutes))
     
     print("The timer has begun! Use Ctrl-C to stop the timer.")
     winsound.Beep(1000, 1000) 
